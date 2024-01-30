@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            font-family: 'poppins',sans-serif;
+            box-sizing: border-box;
+
+        }
+         .container{
+             height:100vh;
+            width: 100vw;
+            background-image: url(./images/purple-space-4k-wallpaper.jpg);
+            background-position: center;
+            background-size: cover;
+            padding: 0 8%;
+            position: relative;
+            
+        
+        }
+        .logo{
+            height:120px;
+            width: 120px;
+            margin: 0 80px  ;
+            cursor:pointer; 
+        }
+        .content{
+            top:50%;
+            position: absolute;
+            transform:translateY(-50%);
+            color:#fff;
+             
+            
+        }
+        .content h1{
+            font-size:50px;
+            font-weight:600; 
+        }
+        .content h1 span{
+            color:#ff3753;
+        }
+        .content button{
+            background:transparent;
+            border: 2px solid #fff;
+            color:#fff;
+            outline: none;
+            padding :12px 25px;
+            display: flex;
+            
+            margin-top: 50px;
+
+        }
+        .time{
+            display: flex;
+        }
+        .time div{
+            flex-basis: 100px;
+        }
+        .time div p{
+            font-size: 60px;
+            margin-bottom: -14px;
+        }
+        .rocketimg{
+            width:20%;
+            position: absolute;
+            right:10%;
+            bottom:0;
+            animation: rocket 5s infinite;
+
+        }
+        @keyframes rocket {
+            25%{
+            bottom:0;
+            opacity: 1;
+            }
+
+            100%{
+                bottom:105%;
+                opacity:1 ;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./images/SpaceX-Emblema.png" class="logo">
+         
+        <div class="content">
+            <p>website is undermaintance</p>
+            <h1>we're<span>Launching</span>  it soon</h1>
+            <div class="time">
+                <div>
+                    <p id="days">00</p>
+                    <span>Days</span>
+                </div>
+                <div>
+                    <p id="hours">00</p>
+                    <span>Hours</span>
+                </div>
+                <div>
+                    <p id="minutes">00</p>
+                    <span>Minutes</span>
+                </div> <div>
+                    <p id="seconds">00</p>
+                    <span>Seconds</span>
+                </div>
+            </div>
+
+            <button type="button">SEE MORE </button>
+            </div>
+            <img src="./images/63ea7cd84f3a49e66449d955_image1.png"class="rocketimg">
+            </div> 
+    
+</body>
+<script>
+    let countDownDate = new Date("April 19,2024 00:00:00").getTime();
+    let x=setInterval(function(){
+        let now=new Date().getTime();
+        let target=countDownDate - now;
+        
+        let days=Math.floor(target /  (1000*60*60*24));
+        let hours=Math.floor((target % (1000*60*60*24)) / (1000*60*60));
+        let minutes=Math.floor((target % (1000*60*60)) / (1000*60));
+        let seconds=Math.floor((target % (1000*60)) / 1000);
+
+        document.getElementById("days").innerHTML=days;
+        document.getElementById("hours").innerHTML=hours;
+        document.getElementById("minutes").innerHTML=minutes;
+        document.getElementById("seconds").innerHTML=seconds;
+
+        if(target < 0){
+           clearInterval(x);
+
+             document.getElementById("days").innerHTML="00";
+             document.getElementById("hours").innerHTML="00";
+             document.getElementById("minutes").innerHTML="00";
+             document.getElementById("seconds").innerHTML="00";
+         }
+
+
+    },1000);
+
+
+    
+</script>
+</html>
